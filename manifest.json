@@ -1,0 +1,13 @@
+{
+  "manifest_version": 1,
+  "name": "Hide Facebook Content",
+  "description": "This Chrome extension hides specified content on Facebook.",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/*"],
+      "js": ["hideContent.js"]
+    }
+  ]
+}
