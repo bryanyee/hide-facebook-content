@@ -5,6 +5,17 @@ const terms = ['Donald', 'Trump', 'government', 'election'];
 const regexSearches = terms.map((term) => new RegExp(term, 'i'));
 const classNames = ['fbUserContent', 'ego_unit', 'mam'];
 const specialElements = ['li._5my2'];
+let clientHeight;
+
+function init() {
+  clientHeight = document.body.clientHeight;
+  collectAndHideContent();
+}
+
+function collectAndHideContent() {
+  const content = collectContent();
+  hideContent(content);
+}
 
 function collectContent() {
   const content = [];
@@ -15,7 +26,7 @@ function collectContent() {
   });
 
   specialElements.forEach((element) => {
-    const s = document.querySelectorAll(element)
+    const s = document.querySelectorAll(element);
     content.push(s);
   });
 
@@ -29,13 +40,23 @@ function hideContent(collectedContent) {
         content.style.display = 'none';
       }
     });
-  })
+  });
 }
 
-function collectAndHideContent(){
-  const content = collectContent();
-  hideContent(content);
+function checkHeightChange() {
+  const currHeight = document.body.clientHeight;
+  if (clientHeight !== currHeight) {
+    clientHeight = currHeight;
+    return true;
+    }
+  return false;
 }
 
-collectAndHideContent();
-window.addEventListener('scroll', collectAndHideContent);
+function onScroll() {
+  if (checkHeightChange()) {
+    collectAndHideContent();
+  }
+}
+
+window.onload(init);
+window.addEventListener('scroll', onScroll);
