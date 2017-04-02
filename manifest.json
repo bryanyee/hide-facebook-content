@@ -1,5 +1,5 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 2,
   "name": "Hide Facebook Content",
   "description": "This Chrome extension hides specified content on Facebook.",
   "version": "1.0",
