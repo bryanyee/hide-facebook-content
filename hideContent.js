@@ -22,12 +22,12 @@ function collectContent() {
 
   classNames.forEach((className) => {
     const c = document.getElementsByClassName(className);
-    content.push(c);
+    content.push(...c);
   });
 
   specialElements.forEach((element) => {
     const s = document.querySelectorAll(element);
-    content.push(s);
+    content.push(...s);
   });
 
   return content;
@@ -35,8 +35,9 @@ function collectContent() {
 
 function hideContent(collectedContent) {
   collectedContent.forEach((content) => {
+    const text = content.innerText;
     regexSearches.forEach((regex) => {
-      if (content.innerText.search(regex) !== -1){
+      if (text && text.search(regex) !== -1){
         content.style.display = 'none';
       }
     });
@@ -58,5 +59,5 @@ function onScroll() {
   }
 }
 
-window.onload(init);
+window.onload = init;
 window.addEventListener('scroll', onScroll);
