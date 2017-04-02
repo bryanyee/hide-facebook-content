@@ -22,11 +22,11 @@ function collectContent() {
   return content;
 }
 
-function hideContent(content) {
-  content.forEach((c) => {
+function hideContent(collectedContent) {
+  collectedContent.forEach((content) => {
     regexSearches.forEach((regex) => {
-      if (c.innerText.search(regex) !== -1){
-        c.style.display = 'none';
+      if (content.innerText.search(regex) !== -1){
+        content.style.display = 'none';
       }
     });
   })
