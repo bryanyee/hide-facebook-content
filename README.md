@@ -4,14 +4,13 @@ This Chrome extension hides specified content on Facebook.
 ## How To Use
 
 1)  Download the files to your computer.
-    - If you're using git, create and use a separate folder with `manifest.json` and `hideContent.js`, without the git files.
 
 2)  In the Chrome web browser, go Settings > Extensions.
     - Check the box for "Developer Mode".
     - Click on "Load unpacked exension..." button.
-    - Select the folder with the downloaded files.
+    - Select the `plugin` folder.
     - Click "Ok".
-    
+
 3)  Make sure the "Enable" checkbox is checked for the extension.
 
 ## Add Content To Hide
