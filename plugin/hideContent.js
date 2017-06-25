@@ -59,5 +59,5 @@ function onScroll() {
   }
 }
 
-window.onload = init;
+window.addEventListener('load', init);
 window.addEventListener('scroll', onScroll);
